@@ -6,9 +6,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class PriorityQueueTests
 {
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Create a queue with the following people and priority: Bob(5), Sally(2), Tim(4), John(6), Mary(2)
+    // and empty the queue in order of priority, if priority is tied then the person who comes earlier in the queue
+    // should be removed first
+    // Expected Result: John, Bob, Tim, Sally, Mary
+    // Defect(s) Found: Dequeue was not removing people from the queue and was not checking the priority of the last
+    // person in the queue
+    
     public void TestPriorityQueue_1()
     {
         var bob = new PriorityItem("Bob", 5);
@@ -41,9 +45,12 @@ public class PriorityQueueTests
     }
 
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Create a queue with the following people and priority: Bob(1), Sally(2), Tim(2), John(4), Mary(3)
+    // and empty the queue in order of priority, if priority is tied then the person who comes earlier in the queue
+    // should be removed first
+    // Expected Result: Bob, Sally, Tim, Mary, John
+    // Defect(s) Found: Dequeue was not removing people from the queue and was not checking the priority of the last
+    // person in the queue
     public void TestPriorityQueue_2()
     {
         var bob = new PriorityItem("Bob", 1);

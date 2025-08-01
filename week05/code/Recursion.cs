@@ -152,6 +152,7 @@ public static class Recursion
         // TODO Start Problem 4
         if (pattern.Length == 0)
         {
+            results.Add(pattern);
             return;
         }
         
@@ -212,7 +213,6 @@ public static class Recursion
 
                 if (maze.IsValidMove(currPath, px, py))
                 {
-                    Console.WriteLine((px, py)); 
                     currPath.Add((px, py));
                         
                     

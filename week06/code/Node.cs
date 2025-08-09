@@ -47,7 +47,7 @@ public class Node
         {
             if (Left is not null)
             {
-                Left.Contains(value);
+                return Left.Contains(value);
             }
 
         }
@@ -55,18 +55,32 @@ public class Node
         {
             if (Right is not null)
             {
-                Right.Contains(value);
+                return Right.Contains(value);
             }
         }
         
         return false;
     }
 
-    public int GetHeight()
+    public int GetHeight(int height = 0, int currHeight = 1)
     {
         // TODO Start Problem 4
 
+        if (currHeight > height)
+        {
+            height = currHeight;
+        }
 
-        return 1; // Replace this line with the correct return statement(s)
+        var options = new List<Node>() { Right, Left };
+        for (var i = 0; i < options.Count; i++)
+        {
+            if (options[i] is not null)
+            {
+                currHeight += 1;
+                return options[i].GetHeight(height, currHeight);
+            }
+        }
+
+        return height; // Replace this line with the correct return statement(s)
     }
 }
